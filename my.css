@@ -1,0 +1,45 @@
+.csss {
+  width: 550px;
+  margin: auto;
+
+}
+
+.d1 {
+  display: inline-block;
+
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+
+  text-align: center;
+  line-height: 150%;
+
+  background-color: #f0ffff;
+  box-shadow: 0 0 15px 2px #aaa;
+}
+
+.d2 {
+  display: inline-block;
+
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+  text-align: center;
+  line-height: 150%;
+
+  background-color: #ffdfdf;
+  box-shadow: 0 0 15px 2px #aaa;
+}
+
+.d3 {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+
+  text-align: center;
+  line-height: 150%;
+
+  background-color: rgb(255, 238, 238);
+  box-shadow: 0 0 15px 2px #aaa;
+}
