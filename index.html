@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8"><!-- 告诉浏览器要用utf8字符集 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"> <!-- 手机显示宽度不超过手机宽度 -->
+    <link rel="stylesheet" href="my_html/my.css">
+    <title>index.html</title>
+    <style>
+        #head {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.2);
+            /* x位移 y位移 大小 */
+        }
+
+        #lianjie {
+            color: chocolate;
+
+            position: fixed;
+            top: 100px;
+            left: 120px;
+
+            /*记得加上px  */
+            /* text-align:  center; */
+        }
+
+        div#juzhong {
+            text-align: center;
+            font-size: larger;
+            width: 350px;
+            margin: auto;
+            /* border: 1px solid; */
+
+
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 2px #aaa;
+            /* box-shadow: 0px 5px 15px 3px #111 */
+
+        }
+    </style>
+</head>
+
+
+<body style="background: #eee;">
+    <!-- 格式嵌套 -->
+    <!--头部div-->
+    <div style="text-align: center;   
+    border: 10px solid #63b8c9;      
+    background-color: rgb(198, 255, 255);
+    color: #4a0bbeea;
+    padding: 20px;">
+        <img id="head" src="https://s21.ax1x.com/2024/10/10/pAJq1TP.jpg" alt="logo" width="100px" height="100px">
+        <br>
+        Steve
+
+    </div>
+    <!-- 网页内容 -->
+    <div id="juzhong">
+        个人网页
+        <br>
+        <a href="">随机数生成器（植入本地程序端口？）</a>
+        <br>
+        <a href="">还有些啥？</a>
+    </div>
+    <div style="display: block;
+ text-align: center;">
+        <hr style="color: red;" width="300">
+        个人链接：
+        <br>
+        <img src="https://ts1.cn.mm.bing.net/th/id/R-C.a1aa2c340f263b44ce1ba3aa7f502ace?rik=BX6NP64mVEqgtw&riu=http%3a%2f%2fimgapp.yeyou.com%2fapp%2fuploads%2fimages%2fcompany%2f2015%2f03%2f14268436099670.png&ehk=4ob5a9mbEqr1JFFDKhF7sOr53FEILc1DC5OHZdHKZ3Q%3d&risl=&pid=ImgRaw&r=0"
+            width="100">
+        <a href="https://www.bilibili.com/">史蒂夫今天开心了吗个人主页-哔哩哔哩视频</a>
+    </div>
+
+    <p style="text-align:center;
+ border: 2px solid #63b8c9;
+ background-color: #e3ffffea;">本页内容仅供学习交流使用
+        <br>
+        1
+    </p>
+
+    <h2>外部CSS测试：</h2>
+    <div class="csss">
+        this is a text
+        <br>
+
+
+        <div class="d1">
+            <h3>号主</h3>
+        </div>
+
+        <div class="d2">
+            <h3>技术</h3>
+        </div>
+
+        <div class="d3">
+            <h3>需求</h3>
+        </div>
+    </div>
+</body>
+
+</html>
