@@ -8,7 +8,7 @@
   display: inline-block;
 
   width: 150px;
-  height: 200px;
+  height: 150px;
   margin: 10px;
 
   text-align: center;
@@ -22,7 +22,7 @@
   display: inline-block;
 
   width: 150px;
-  height: 200px;
+  height: 150px;
   margin: 10px;
   text-align: center;
   line-height: 150%;
@@ -34,7 +34,7 @@
 .d3 {
   display: inline-block;
   width: 150px;
-  height: 200px;
+  height: 150px;
   margin: 10px;
 
   text-align: center;
@@ -42,4 +42,54 @@
 
   background-color: rgb(255, 238, 238);
   box-shadow: 0 0 15px 2px #aaa;
+}
+
+div.side {
+
+  display: block;
+  width: 150px;
+  height: 600px;
+  margin: 10px;
+
+  text-align: center;
+  line-height: 150%;
+
+  background-color: rgb(255, 238, 238);
+  box-shadow: 0 0 15px 2px #aaa;
+}
+
+div.t1 {
+  display: inline-block;
+  width: 350px;
+  height: 100px;
+  margin: 10px;
+
+  position: relative;
+  right: -32%;
+  top: -62%;
+
+  text-align: center;
+  line-height: 150%;
+
+  background-color: rgb(255, 238, 238);
+  box-shadow: 0 0 15px 2px #aaa;
+}
+
+div.t2 {
+  display: inline-block;
+  width: 215px;
+
+  position: fixed;
+  top: 50%;
+  right: 0%;
+  line-height: 150%;
+
+
+  background-image: url("https://i.imgs.ovh/2025/02/26/7JsHY.th.png");
+  background-size: contain;
+  box-shadow: 0 0 15px 2px #aaa;
+}
+
+t2.p {
+  background-color: #fff;
 }
