@@ -80,21 +80,13 @@
 
         /* 工具分类样式 */
         .tools-category {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #e0e0e0;
-        }
-
-        .tools-category:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+            margin-bottom: 35px;
         }
 
         .category-title {
             font-size: 16px;
             color: #333;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-weight: 600;
             text-align: left;
             padding-left: 5px;
@@ -106,40 +98,124 @@
             margin-right: 6px;
         }
 
-        .function-list {
-            list-style: none;
+        /* 工具卡片网格 */
+        .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
         }
 
-        .function-item {
-            margin: 0;
+        .tool-card {
+            display: flex;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #eef0f5;
         }
 
-        .function-link {
-            display: inline-flex;
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74,11,190,0.15);
+            border-color: #4a0bbe;
+        }
+
+        .tool-cover {
+            flex: 0 0 140px;
+            min-height: 140px;
+            background: linear-gradient(135deg, #63b8c9, #4a0bbe);
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tool-cover img {
             width: 100%;
-            background: #f0f5ff;
-            color: #4a0bbe;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tool-cover .placeholder-icon {
+            font-size: 42px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .tool-info {
+            flex: 1;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .tool-desc {
+            font-size: 12px;
+            color: #888;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .tool-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tool-link {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             font-size: 14px;
         }
 
-        .function-link:hover {
-            background: #4a0bbe;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(74,11,190,0.2);
+        .tool-link.bili {
+            background: #fb7299;
+            color: #fff;
         }
 
-        .function-link i {
-            margin-right: 8px;
+        .tool-link.bili:hover {
+            background: #f14772;
+            transform: scale(1.1);
+        }
+
+        .tool-link.github {
+            background: #333;
+            color: #fff;
+        }
+
+        .tool-link.github:hover {
+            background: #000;
+            transform: scale(1.1);
+        }
+
+        .tool-link.placeholder {
+            background: #f0f5ff;
+            color: #aaa;
+            cursor: default;
+        }
+
+        .tool-link.placeholder:hover {
+            background: #f0f5ff;
+            transform: none;
         }
 
         /* 个人链接区样式 */
@@ -433,7 +509,24 @@
             font-weight: 500;
             font-size: 16px;
         }
+div.t2 {
+  display: inline-block;
+  width: 215px;
 
+  position: fixed;
+  top: 50%;
+  right: 0%;
+  line-height: 150%;
+
+
+  background-image: url("https://i.imgs.ovh/2025/02/26/7JsHY.th.png");
+  background-size: contain;
+  box-shadow: 0 0 15px 2px #aaa;
+}
+
+t2.p {
+  background-color: #fff;
+}
         /* 动态插入内容区样式 */
         .dynamic-content {
             max-width: 800px;
@@ -508,37 +601,104 @@
         <!-- ACG工具 -->
         <div class="tools-category">
             <h3 class="category-title"><i class="fas fa-gamepad"></i>ACG工具</h3>
-            <ul class="function-list">
-                <li class="function-item">
-                    <a href="https://5a19e62a.r17.cpolar.top/" class="function-link"><i class="fas fa-book-open"></i>ACGEpubReader阅读器</a>
-                </li>
-                <li class="function-item">
-                    <a href="" class="function-link"><i class="fas fa-seedling"></i>网页版植物大战僵尸</a>
-                </li>
-                <li class="function-item">
-                    <a href="" class="function-link"><i class="fas fa-cube"></i>网页版Minecraft(beta)</a>
-                </li>
-            </ul>
+            <div class="tools-grid">
+                <!-- ACGEpubReader -->
+                <div class="tool-card" onclick="window.open('https://5a19e62a.r17.cpolar.top/', '_blank')" style="cursor:pointer;">
+                    <div class="tool-cover">
+                        <img src="https://raw.giteeusercontent.com/stevemose/MyWeb20260731/raw/main/%E9%98%85%E8%AF%BB%E5%99%A8%E5%B0%81%E9%9D%A2.png?metadata=eyJyIjoibWFpbiIsImZwIjoi6ZiF6K-75Zmo5bCB6Z2iLnBuZyIsInVpZCI6MTczOTc2OTYsInBpZCI6NDk0NTMzMzAsInN0byI6ImdpdC1zaGFyZGluZy1zdG8tMTB0LTAzOSIsInJwIjoicmVwb3MvN2MvOTkvN2M5OWFmYWE3NjMzN2Y3ZTk0YTNlZGI1ZDg2MGJjMWY4ZmUwOGZlNDkwZjk5M2VjOTJiNTRlZTE2MzNjMDE5MC5naXQiLCJpc3AiOnRydWUsImV4cGlyZV9hdCI6MTc4NTQ5MzIwMH0&signature=ebVxHqv--vNwdv64xXX95MeIkFUlVCOaytSmA-WXS8E" alt="ACG阅读器封面">
+                    </div>
+                    <div class="tool-info">
+                        <div>
+                            <div class="tool-name">ACGEpubReader阅读器</div>
+                            <div class="tool-desc">在线 EPUB 电子书阅读器，支持漫画、小说阅读，支持目录导航与主题切换</div>
+                        </div>
+                        <div class="tool-links">
+                            <a href="https://space.bilibili.com/99769909" class="tool-link bili" title="B站" onclick="event.stopPropagation()"><i class="fab fa-bilibili"></i></a>
+                            <a href="#" class="tool-link github placeholder" title="GitHub" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 植物大战僵尸 -->
+                <div class="tool-card">
+                    <div class="tool-cover">
+                        <i class="fas fa-seedling placeholder-icon"></i>
+                    </div>
+                    <div class="tool-info">
+                        <div>
+                            <div class="tool-name">网页版植物大战僵尸</div>
+                            <div class="tool-desc">经典塔防游戏网页复刻版，无需下载即点即玩</div>
+                        </div>
+                        <div class="tool-links">
+                            <a href="#" class="tool-link bili placeholder" title="B站"><i class="fab fa-bilibili"></i></a>
+                            <a href="#" class="tool-link github placeholder" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Minecraft -->
+                <div class="tool-card">
+                    <div class="tool-cover">
+                        <i class="fas fa-cube placeholder-icon"></i>
+                    </div>
+                    <div class="tool-info">
+                        <div>
+                            <div class="tool-name">网页版 Minecraft (beta)</div>
+                            <div class="tool-desc">沙盒建造游戏网页体验版，探索无限方块世界</div>
+                        </div>
+                        <div class="tool-links">
+                            <a href="#" class="tool-link bili placeholder" title="B站"><i class="fab fa-bilibili"></i></a>
+                            <a href="#" class="tool-link github placeholder" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 编程工具 -->
         <div class="tools-category">
             <h3 class="category-title"><i class="fas fa-code"></i>编程工具</h3>
-            <ul class="function-list">
-                <li class="function-item">
-                    <a href="" class="function-link"><i class="fas fa-hashtag"></i>MD5在线提取</a>
-                </li>
-            </ul>
+            <div class="tools-grid">
+                <!-- MD5提取 -->
+                <div class="tool-card">
+                    <div class="tool-cover">
+                        <i class="fas fa-hashtag placeholder-icon"></i>
+                    </div>
+                    <div class="tool-info">
+                        <div>
+                            <div class="tool-name">MD5 在线提取</div>
+                            <div class="tool-desc">MD5 哈希值在线计算与提取工具</div>
+                        </div>
+                        <div class="tool-links">
+                            <a href="#" class="tool-link bili placeholder" title="B站"><i class="fab fa-bilibili"></i></a>
+                            <a href="#" class="tool-link github placeholder" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 其他工具 -->
         <div class="tools-category">
             <h3 class="category-title"><i class="fas fa-tools"></i>其他工具</h3>
-            <ul class="function-list">
-                <li class="function-item">
-                    <a href="" class="function-link"><i class="fas fa-link"></i>网站导航</a>
-                </li>
-            </ul>
+            <div class="tools-grid">
+                <!-- 网站导航 -->
+                <div class="tool-card">
+                    <div class="tool-cover">
+                        <i class="fas fa-link placeholder-icon"></i>
+                    </div>
+                    <div class="tool-info">
+                        <div>
+                            <div class="tool-name">网站导航</div>
+                            <div class="tool-desc">精选网址导航，快速访问常用网站</div>
+                        </div>
+                        <div class="tool-links">
+                            <a href="#" class="tool-link bili placeholder" title="B站"><i class="fab fa-bilibili"></i></a>
+                            <a href="#" class="tool-link github placeholder" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -664,7 +824,7 @@
         </div>
 
         <!-- 弹窗广告 -->
-         <div class="t2"><p>这是一个弹窗广告</p><br><br><br><br><br><br><br><br><br><b</b></div>
+         <div class="t2"><p>这是一个弹窗看板娘</p><\<p></p>></div>
     </div>
 
     <!-- 动态内容区 -->
