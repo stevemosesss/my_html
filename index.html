@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>stevemose的个人网页</title>
+    <!-- 引入Font Awesome图标库（增强视觉效果） -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #63b8c9 0%, #4a0bbe 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 核心功能区样式 */
+        .tools-section {
+            max-width: 600px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .function-title {
+            font-size: 22px;
+            color: #4a0bbe;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .function-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #63b8c9;
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+
+        /* 工具分类样式 */
+        .tools-category {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .tools-category:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-align: left;
+            padding-left: 5px;
+            border-left: 4px solid #4a0bbe;
+        }
+
+        .category-title i {
+            color: #4a0bbe;
+            margin-right: 6px;
+        }
+
+        .function-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .function-item {
+            margin: 0;
+        }
+
+        .function-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            width: 100%;
+            background: #f0f5ff;
+            color: #4a0bbe;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .function-link:hover {
+            background: #4a0bbe;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(74,11,190,0.2);
+        }
+
+        .function-link i {
+            margin-right: 8px;
+        }
+
+        /* 个人链接区样式 */
+        .personal-link-section {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .link-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .bilibili-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #faf0ff;
+            transition: all 0.3s ease;
+        }
+
+        .bilibili-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .bilibili-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .bilibili-link {
+            color: #fb7299;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .bilibili-link:hover {
+            color: #f14772;
+            text-decoration: underline;
+        }
+
+        /* 声明区样式 */
+        .declaration {
+            max-width: 600px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* CSS测试区样式 */
+        .css-test-section {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+        }
+
+        .test-title {
+            font-size: 22px;
+            color: #4a0bbe;
+            margin-bottom: 30px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f5ff;
+        }
+
+        .text-demo {
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .code {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #d93f0b;
+            margin: 5px;
+        }
+
+        /* 人员展示区 */
+        .team-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #f0f5ff;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .member-name {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* 帖子区样式 */
+        .post-container {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .sidebar {
+            background: #f0f5ff;
+            border-radius: 15px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h3 {
+            color: #4a0bbe;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin: 8px 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 8px 12px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .sidebar a:hover {
+            background: #4a0bbe;
+            color: white;
+        }
+
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .post-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 0;
+            text-align: left;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .post-cover {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #63b8c9, #4a0bbe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+
+        .post-body {
+            padding: 16px;
+        }
+
+        .post-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .post-meta .author {
+            color: #4a0bbe;
+            font-weight: 500;
+        }
+
+        .post-meta .date {
+            color: #bbb;
+        }
+
+        .post-excerpt {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .post-tag {
+            padding: 3px 10px;
+            background: #f0f5ff;
+            color: #4a0bbe;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        /* 弹窗广告样式（优化显示） */
+        .popup-ad {
+            max-width: 400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: #d93f0b;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* 动态插入内容区样式 */
+        .dynamic-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .dynamic-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .dynamic-text {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 15px;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .function-section,
+            .personal-link-section,
+            .css-test-section {
+                padding: 20px 15px;
+                margin: 0 15px 30px;
+            }
+
+            .post-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .team-section {
+                gap: 20px;
+            }
+
+            .bilibili-card {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <div class="header">
+        <img class="logo" src="https://s21.ax1x.com/2024/10/10/pAJq1TP.jpg" alt="logo">
+        <h1>Steve 的个人网页</h1>
+    </div>
+
+    <!-- 核心功能区 -->
+    <div class="tools-section">
+        <h2 class="function-title">常用工具</h2>
+        
+        <!-- ACG工具 -->
+        <div class="tools-category">
+            <h3 class="category-title"><i class="fas fa-gamepad"></i>ACG工具</h3>
+            <ul class="function-list">
+                <li class="function-item">
+                    <a href="https://5a19e62a.r17.cpolar.top/" class="function-link"><i class="fas fa-book-open"></i>ACGEpubReader阅读器</a>
+                </li>
+                <li class="function-item">
+                    <a href="" class="function-link"><i class="fas fa-seedling"></i>网页版植物大战僵尸</a>
+                </li>
+                <li class="function-item">
+                    <a href="" class="function-link"><i class="fas fa-cube"></i>网页版Minecraft(beta)</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 编程工具 -->
+        <div class="tools-category">
+            <h3 class="category-title"><i class="fas fa-code"></i>编程工具</h3>
+            <ul class="function-list">
+                <li class="function-item">
+                    <a href="" class="function-link"><i class="fas fa-hashtag"></i>MD5在线提取</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 其他工具 -->
+        <div class="tools-category">
+            <h3 class="category-title"><i class="fas fa-tools"></i>其他工具</h3>
+            <ul class="function-list">
+                <li class="function-item">
+                    <a href="" class="function-link"><i class="fas fa-link"></i>网站导航</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 个人链接区 -->
+    <div class="personal-link-section">
+        <h3 class="link-title">个人链接</h3>
+        <div class="bilibili-card">
+            <img class="bilibili-logo" src="https://ts1.cn.mm.bing.net/th/id/R-C.a1aa2c340f263b44ce1ba3aa7f502ace?rik=BX6NP64mVEqgtw&riu=http%3a%2f%2fimgapp.yeyou.com%2fapp%2fuploads%2fimages%2fcompany%2f2015%2f03%2f14268436099670.png&ehk=4ob5a9mbEqr1JFFDKhF7sOr53FEILc1DC5OHZdHKZ3Q%3d&risl=&pid=ImgRaw&r=0" alt="哔哩哔哩logo">
+            <a href="https://space.bilibili.com/99769909?spm_id_from=333.1007.0.0/" class="bilibili-link">史蒂夫今天开心了吗个人主页-哔哩哔哩视频</a>
+        </div>
+    </div>
+
+    <!-- 声明区 -->
+    <div class="declaration">
+        本页内容仅供学习交流使用<br>
+        版权所有  stevemose
+    </div>
+
+    <!-- CSS测试区 -->
+    <div class="css-test-section">
+        <h2 class="test-title">外部CSS测试</h2>
+        
+        <div class="text-demo">
+            <code class="code">this is a text</code>
+            <code class="code">this is a text</code>
+            <br><br>
+            this is a text
+        </div>
+
+        <!-- 人员展示 -->
+        <div class="team-section">
+            <div class="team-member">
+                <img class="member-avatar" src="https://s21.ax1x.com/2024/10/10/pAJq1TP.jpg" alt="成员头像">
+                <h3 class="member-name">域名号主大头</h3>
+            </div>
+            <div class="team-member">
+                <img class="member-avatar" src="https://s21.ax1x.com/2024/10/10/pAJq1TP.jpg" alt="成员头像">
+                <h3 class="member-name">技术支持大头</h3>
+            </div>
+            <div class="team-member">
+                <img class="member-avatar" src="https://s21.ax1x.com/2024/10/10/pAJq1TP.jpg" alt="成员头像">
+                <h3 class="member-name">精神支持大头</h3>
+            </div>
+        </div>
+
+        <!-- 博客区域 -->
+        <div class="post-container">
+            <div class="sidebar">
+                <h3>博客分类</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-star"></i> 全部文章</a></li>
+                    <li><a href="#"><i class="fas fa-code"></i> 技术分享</a></li>
+                    <li><a href="#"><i class="fas fa-gamepad"></i> ACG杂谈</a></li>
+                    <li><a href="#"><i class="fas fa-lightbulb"></i> 生活随笔</a></li>
+                    <li><a href="#"><i class="fas fa-archive"></i> 归档</a></li>
+                </ul>
+            </div>
+            <div class="posts">
+                <article class="post-card">
+                    <div class="post-cover"><i class="fas fa-file-alt"></i></div>
+                    <div class="post-body">
+                        <h3 class="post-title">文章标题占位符</h3>
+                        <div class="post-meta">
+                            <span class="author">作者名</span>
+                            <span class="date">2026-07-31</span>
+                        </div>
+                        <p class="post-excerpt">文章摘要占位文字，这里将显示文章的前几段内容，方便读者预览。</p>
+                        <div class="post-tags">
+                            <span class="post-tag">#标签1</span>
+                            <span class="post-tag">#标签2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-cover"><i class="fas fa-file-alt"></i></div>
+                    <div class="post-body">
+                        <h3 class="post-title">文章标题占位符</h3>
+                        <div class="post-meta">
+                            <span class="author">作者名</span>
+                            <span class="date">2026-07-30</span>
+                        </div>
+                        <p class="post-excerpt">文章摘要占位文字，这里将显示文章的前几段内容，方便读者预览。</p>
+                        <div class="post-tags">
+                            <span class="post-tag">#标签1</span>
+                            <span class="post-tag">#标签2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-cover"><i class="fas fa-file-alt"></i></div>
+                    <div class="post-body">
+                        <h3 class="post-title">文章标题占位符</h3>
+                        <div class="post-meta">
+                            <span class="author">作者名</span>
+                            <span class="date">2026-07-28</span>
+                        </div>
+                        <p class="post-excerpt">文章摘要占位文字，这里将显示文章的前几段内容，方便读者预览。</p>
+                        <div class="post-tags">
+                            <span class="post-tag">#标签1</span>
+                            <span class="post-tag">#标签2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-cover"><i class="fas fa-file-alt"></i></div>
+                    <div class="post-body">
+                        <h3 class="post-title">文章标题占位符</h3>
+                        <div class="post-meta">
+                            <span class="author">作者名</span>
+                            <span class="date">2026-07-25</span>
+                        </div>
+                        <p class="post-excerpt">文章摘要占位文字，这里将显示文章的前几段内容，方便读者预览。</p>
+                        <div class="post-tags">
+                            <span class="post-tag">#标签1</span>
+                            <span class="post-tag">#标签2</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- 弹窗广告 -->
+         <div class="t2"><p>这是一个弹窗广告</p><br><br><br><br><br><br><br><br><br><b</b></div>
+    </div>
+
+    <!-- 动态内容区 -->
+    <div class="dynamic-content">
+        <h3 class="dynamic-title">动态插入内容</h3>
+        <div class="dynamic-text" id="targetDiv"></div>
+    </div>
